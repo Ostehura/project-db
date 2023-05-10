@@ -1,0 +1,23 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h1>Create Courier</h1>
+  <form method="POST" action="/couriers">
+    <div class="form-group">
+        <label for="companyId">ID</label>
+        <input type="text" class="form-control" id="idCuriers" name="idCuriers" required>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="webpage">Webpage</label>
+        <input type="text" class="form-control" id="webpage" name="webpage" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

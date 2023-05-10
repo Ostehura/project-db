@@ -1,0 +1,29 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+    
+  <h1>Parcels</h1>
+  <br/>
+  <a href="parcels/create" class="btn btn-primary"> Create Parcel</a>
+  <br/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Track Number</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each parcels}}
+      <tr>
+        <td>{{this.Tracknumber}}</td>
+        <td>{{this.client_parcels_SenderToclient.city}} - {{this.client_parcels_RecieverToclient.city}}</td>
+        <td><a href="parcels/track?trackNumber={{this.Tracknumber}}" class="btn btn-primary">Track</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

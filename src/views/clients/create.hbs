@@ -1,0 +1,19 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h1>Create Client</h1>
+  <form method="POST" action="/clients">
+    <div class="form-group">
+      <label for="fullname">Name</label>
+      <input type="text" class="form-control" id="fullname" name="fullname" required>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" name="city" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

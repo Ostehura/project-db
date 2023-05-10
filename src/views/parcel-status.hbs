@@ -1,0 +1,27 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h1>Parcel: {{parcel.Tracknumber}}</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Courier</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each parcel.events}}
+      <tr>
+        <td>{{this.eventname}}</td>
+        <td>{{this.Date}}</td>
+        <td>{{this.location}}</td>
+        <td>{{this.courier}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

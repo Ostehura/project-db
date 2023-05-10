@@ -1,0 +1,18 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h1>Edit Courier: {{courier.idCuriers}}</h1>
+  <form method="post" action="/couriers/{{courier.idCuriers}}">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{courier.name}}" required>
+    </div>
+    <div class="form-group">
+      <label for="webpage">Webpage</label>
+      <input type="text" class="form-control" id="webpage" name="webpage" value="{{courier.webpage}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Update Courier</button>
+  </form>
+</div>

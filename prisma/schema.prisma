@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model client {
+  idclient                         Int       @id @unique(map: "idclient_UNIQUE") @default(autoincrement())
+  fullname                         String    @db.VarChar(45)
+  city                             String?   @db.VarChar(45)
+  parcels_parcels_RecieverToclient parcels[] @relation("parcels_RecieverToclient")
+  parcels_parcels_SenderToclient   parcels[] @relation("parcels_SenderToclient")
+}
+
+model curiers {
+  idCuriers String   @id @unique(map: "idCuriers_UNIQUE") @db.VarChar(45)
+  name      String   @db.VarChar(45)
+  webpage   String?  @db.VarChar(45)
+  events    events[]
+}
+
+model events {
+  tracknumber String   @db.VarChar(15)
+  courier     String   @db.VarChar(45)
+  Date        DateTime @db.DateTime(0)
+  eventname   String   @db.VarChar(45)
+  location    String?  @db.VarChar(45)
+  curiers     curiers  @relation(fields: [courier], references: [idCuriers], onDelete: NoAction, onUpdate: NoAction, map: "courier")
+  parcels     parcels  @relation(fields: [tracknumber], references: [Tracknumber], onDelete: NoAction, onUpdate: NoAction, map: "parcel")
+
+  @@id([tracknumber, courier, Date])
+  @@index([courier], map: "courier_idx")
+}
+
+model parcels {
+  Tracknumber                     String   @id @unique(map: "Tracknumber_UNIQUE") @db.VarChar(15)
+  Sender                          Int
+  Reciever                        Int
+  events                          events[]
+  client_parcels_RecieverToclient client   @relation("parcels_RecieverToclient", fields: [Reciever], references: [idclient], onDelete: NoAction, onUpdate: NoAction, map: "reciever")
+  client_parcels_SenderToclient   client   @relation("parcels_SenderToclient", fields: [Sender], references: [idclient], onDelete: NoAction, onUpdate: NoAction, map: "sender")
+
+  @@index([Reciever], map: "reciever_idx")
+  @@index([Sender], map: "sender_idx")
+}

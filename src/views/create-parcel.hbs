@@ -1,0 +1,30 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h1>Create Parcel</h1>
+  <form method="POST" action="/parcels">
+    <div class="form-group">
+      <label for="trackNumber">Track Number</label>
+      <input type="text" class="form-control" id="trackNumber" name="trackNumber" placeholder="Enter track number" required>
+    </div>
+    <div class="form-group">
+      <label for="sender">Sender</label>
+      <select class="form-control" id="sender" name="sender" required>
+        {{#each clients}}
+        <option value="{{this.idclient}}">{{this.fullname}} | {{this.city}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="receiver">Receiver</label>
+      <select class="form-control" id="receiver" name="receiver" required>
+        {{#each clients}}
+        <option value="{{this.idclient}}">{{this.fullname}} | {{this.city}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h3>Number of delivered parcels by city of sender</h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">City</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each statBySenderCity}}
+      <tr>
+        <td>{{this.city}}</td>
+        <td>{{this.count}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+   <h3>Number of delivered parcels by destination city</h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">City</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each   statByDestinationCity}}
+      <tr>
+        <td>{{this.city}}</td>
+        <td>{{this.count}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  </div>

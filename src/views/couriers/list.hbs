@@ -1,0 +1,31 @@
+<head>
+    {{>head}}
+</head>
+{{>header}}
+<div class="container mt-3">
+  <h1>Couriers</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Webpage</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each couriers}}
+      <tr>
+        <td>{{this.idCuriers}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.webpage}}</td>
+        <td>
+          <a href="/couriers/edit/{{this.idCuriers}}" class="btn btn-primary">Edit</a>
+          <a href="/couriers/delete/{{this.idCuriers}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <a href="/couriers/create" class="btn btn-success">Add new courier</a>
+</div>
